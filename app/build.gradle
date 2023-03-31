@@ -78,6 +78,18 @@ dependencies {
     implementation project(':liveness')
 }
 
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.mutaqin0714'
+                artifactId = 'library_android'
+                version = 'v.1.0.1'
+            }
+        }
+    }
+}
+
 /*
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
