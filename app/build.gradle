@@ -82,7 +82,7 @@ project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'com.github.mutaqin0714'
+                groupId = 'com.github.DiPS361'
                 artifactId = 'library_android'
                 version = 'v.1.0.1'
             }
