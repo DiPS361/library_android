@@ -78,13 +78,20 @@ dependencies {
     implementation project(':liveness')
 }
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
 project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'com.evo.mitzoom'
-                artifactId = 'library-android'
-                version = 'v.1.0.7'
+                groupId = 'com.github.DiPS361'
+                artifactId = 'library_android'
+                version = 'v.1.0.8'
+                artifact(sourceJar)
+                artifact("$buildDir/outputs/aar/dips-release.aar")
             }
         }
     }
