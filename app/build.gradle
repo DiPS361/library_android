@@ -78,7 +78,7 @@ dependencies {
     implementation project(':liveness')
 }
 
-task sourceJar(type: Jar) {
+/*task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier "sources"
 }
@@ -95,7 +95,7 @@ project.afterEvaluate {
             }
         }
     }
-}
+}*/
 
 /*
 apply plugin: 'com.google.gms.google-services'
