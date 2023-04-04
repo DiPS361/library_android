@@ -20,13 +20,13 @@
         </repository>
     </repositories>
 
-    <!--<dependencies>
+    <dependencies>
         <dependency>
             <groupId>com.github.DiPS361</groupId>
             <artifactId>library_android</artifactId>
             <scope>provided</scope>
             <version>v.1.0.9</version>
         </dependency>
-    </dependencies>-->
+    </dependencies>
 
 </project>
