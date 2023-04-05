@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
+//apply plugin: 'maven-publish'
 android {
     compileSdkVersion 32
 
@@ -41,6 +41,7 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
 }
 
+/*
 afterEvaluate {
     publishing {
         publications {
@@ -56,4 +57,4 @@ afterEvaluate {
             }
         }
     }
-}
+}*/
