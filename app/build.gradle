@@ -78,13 +78,38 @@ dependencies {
     implementation project(':liveness')
 }
 
-task sourceJar(type: Jar) {
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.github.DiPS361'
+                artifactId = 'library-android'
+                version = 'v.1.0.11'
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'com.example.MyLibrary'
+                artifactId = 'library-android-debug'
+                version = 'v.1.0.11'
+            }
+        }
+    }
+}
+
+/*task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier "sources"
 }
 
 project.afterEvaluate {
-    print("$buildDir/outputs/aar/dips-release.aar")
     publishing {
         publications {
             maven(MavenPublication) {
@@ -93,7 +118,7 @@ project.afterEvaluate {
                 version = 'v.1.0.10'
                 artifact(sourceJar)
                 artifact("$buildDir/outputs/aar/dips-release.aar")
-                /*pom.withXml {
+                *//*pom.withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
                     //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
                     configurations.compile.allDependencies.each {
@@ -105,7 +130,7 @@ project.afterEvaluate {
                             dependencyNode.appendNode('version', it.version)
                         }
                     }
-                }*/
+                }*//*
             }
         }
 
@@ -115,7 +140,7 @@ project.afterEvaluate {
             }
         }
     }
-}
+}*/
 
 /*
 apply plugin: 'com.google.gms.google-services'
