@@ -18,7 +18,7 @@ buildscript {
 
 allprojects {
     group = "com.github.DiPS361"
-    version = "v.1.0.22"
+    version = "v.1.0.23"
     repositories {
         google()
         mavenCentral()

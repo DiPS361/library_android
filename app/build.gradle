@@ -90,7 +90,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
                 artifactId = 'finaldips361'
-                version = 'v.1.0.22'
+                version = 'v.1.0.23'
             }
             /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
