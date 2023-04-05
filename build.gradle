@@ -4,10 +4,6 @@ buildscript {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven {
-            url 'http://public-n3.advai.net/repository/maven-releases/'
-            allowInsecureProtocol = true
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.2'
@@ -22,15 +18,11 @@ buildscript {
 
 allprojects {
     group = "com.github.DiPS361"
-    version = "v.1.0.21"
+    version = "v.1.0.22"
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
-        maven {
-            url 'http://public-n3.advai.net/repository/maven-releases/'
-            allowInsecureProtocol = true
-        }
     }
 }
 
@@ -54,7 +46,7 @@ subprojects {
                                 url = "https://maven.pkg.github.com/DiPS361/library_android/"
                                 credentials {
                                     username = "mutaqin0714"
-                                    password = "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"
+                                    password = "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"
                                 }
                             }
                         }
