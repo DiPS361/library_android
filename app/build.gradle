@@ -89,7 +89,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
                 artifactId = 'finaldips361'
-                version = 'v.1.0.18'
+                version = 'v.1.0.19'
             }
             /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
@@ -100,37 +100,6 @@ afterEvaluate {
                 artifactId = 'library-android-debug'
                 version = 'v.1.0.11'
             }*/
-        }
-    }
-}
-
-subprojects {
-    apply plugin: "maven-publish"
-    project.afterEvaluate {
-        if (!plugins.hasPlugin("android")) {
-            publishing {
-                publications {
-                    maven(MavenPublication) {
-                        afterEvaluate {
-                            artifactId = "$project.name"
-                            if (plugins.hasPlugin("java")) {
-                                from components.java
-                            } else if (plugins.hasPlugin("android-library")) {
-                                from components.release
-                            }
-                        }
-                        repositories {
-                            maven {
-                                url = "https://maven.pkg.github.com/DiPS361/library_android/"
-                                credentials {
-                                    username = "mutaqin0714"
-                                    password = "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"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

@@ -1,7 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    group = "com.github.DiPS361"
-    version = "v.1.0.18"
     repositories {
         google()
         mavenCentral()
@@ -15,5 +13,46 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    group = "com.github.DiPS361"
+    version = "v.1.0.19"
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+subprojects {
+    apply plugin: "maven-publish"
+    afterEvaluate {
+        if (!plugins.hasPlugin("android")) {
+            publishing {
+                publications {
+                    maven(MavenPublication) {
+                        afterEvaluate {
+                            artifactId = "$project.name"
+                            if (plugins.hasPlugin("java")) {
+                                from components.java
+                            } else if (plugins.hasPlugin("android-library")) {
+                                from components.release
+                            }
+                        }
+                        repositories {
+                            maven {
+                                url = "https://maven.pkg.github.com/DiPS361/library_android/"
+                                credentials {
+                                    username = "mutaqin0714"
+                                    password = "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"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
