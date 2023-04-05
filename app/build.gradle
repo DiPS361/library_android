@@ -84,12 +84,13 @@ task sourceJar(type: Jar) {
 }
 
 project.afterEvaluate {
+    print("$buildDir/outputs/aar/dips-release.aar")
     publishing {
         publications {
-            release(MavenPublication) {
+            maven(MavenPublication) {
                 groupId = 'com.github.DiPS361'
                 artifactId = 'library_android'
-                version = 'v.1.0.2'
+                version = 'v.1.0.3'
                 artifact(sourceJar)
                 artifact("$buildDir/outputs/aar/dips-release.aar")
                 pom.withXml {
@@ -105,6 +106,12 @@ project.afterEvaluate {
                         }
                     }
                 }
+            }
+        }
+
+        repositories{
+            maven {
+                url "$buildDir/repo"
             }
         }
     }
