@@ -46,7 +46,7 @@ subprojects {
                                 url = "https://maven.pkg.github.com/DiPS361/library_android/"
                                 credentials {
                                     username = "mutaqin0714"
-                                    password = "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"
+                                    password = "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"
                                 }
                             }
                         }
