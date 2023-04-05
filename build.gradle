@@ -4,6 +4,10 @@ buildscript {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven {
+            url 'http://public-n3.advai.net/repository/maven-releases/'
+            allowInsecureProtocol = true
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.2'
@@ -18,11 +22,15 @@ buildscript {
 
 allprojects {
     group = "com.github.DiPS361"
-    version = "v.1.0.20"
+    version = "v.1.0.21"
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        maven {
+            url 'http://public-n3.advai.net/repository/maven-releases/'
+            allowInsecureProtocol = true
+        }
     }
 }
 
