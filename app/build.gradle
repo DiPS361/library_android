@@ -78,6 +78,10 @@ dependencies {
     implementation project(':liveness')
 }
 
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false
+}
+
 afterEvaluate {
     publishing {
         publications {
@@ -88,10 +92,10 @@ afterEvaluate {
 
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
-                artifactId = 'library-android'
-                version = 'v.1.0.11'
+                artifactId = 'finalDiPS361'
+                version = 'v.1.0.12'
             }
-            // Creates a Maven publication called “debug”.
+            /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
                 // Applies the component for the debug build variant.
                 from components.debug
@@ -99,48 +103,10 @@ afterEvaluate {
                 groupId = 'com.example.MyLibrary'
                 artifactId = 'library-android-debug'
                 version = 'v.1.0.11'
-            }
+            }*/
         }
     }
 }
-
-/*task sourceJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier "sources"
-}
-
-project.afterEvaluate {
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                groupId = 'com.github.DiPS361'
-                artifactId = 'library_android'
-                version = 'v.1.0.10'
-                artifact(sourceJar)
-                artifact("$buildDir/outputs/aar/dips-release.aar")
-                *//*pom.withXml {
-                    def dependenciesNode = asNode().appendNode('dependencies')
-                    //Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
-                    configurations.compile.allDependencies.each {
-                        if(it.group != null && (it.name != null || "unspecified".equals(it.name)) && it.version != null)
-                        {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
-                    }
-                }*//*
-            }
-        }
-
-        repositories{
-            maven {
-                url "$buildDir/repo"
-            }
-        }
-    }
-}*/
 
 /*
 apply plugin: 'com.google.gms.google-services'
