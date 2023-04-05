@@ -36,6 +36,9 @@ android {
 }
 
 dependencies {
+    internalDependencies.each {
+        implementation it
+    }
     implementation 'com.google.android.exoplayer:exoplayer:2.18.4'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
     implementation 'com.rabbitmq:amqp-client:5.16.0'
@@ -83,8 +86,17 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-perf'*/
-    implementation project(':mobilertc')
-    implementation project(':liveness')
+    /*implementation project(':mobilertc')
+    implementation project(':liveness')*/
+}
+
+task sourcesJar(type: Jar) {
+    from {
+        internalDependencies.collect {
+            it.sourceSets.main.allJava
+        }
+    }
+    archiveClassifier = 'sources'
 }
 
 afterEvaluate {
@@ -98,7 +110,20 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
                 artifactId = 'finaldips361'
-                version = 'v.1.0.13'
+                version = 'v.1.0.14'
+                artifact sourcesJar
+                pom.withXml {
+                    Node pomNode = asNode()
+                    pomNode.dependencies.'*'.each {
+                        Node temp = it
+                        internalDependencies.each {
+                            if (temp.groupId.text() == it.getGroup() && temp.artifactId.text() == it.getName()) {
+                                temp.parent().remove(temp)
+                                return false
+                            }
+                        }
+                    }
+                }
             }
             /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
