@@ -90,7 +90,7 @@ project.afterEvaluate {
             maven(MavenPublication) {
                 groupId = 'com.github.DiPS361'
                 artifactId = 'library_android'
-                version = 'v.1.0.4'
+                version = 'v.1.0.10'
                 artifact(sourceJar)
                 artifact("$buildDir/outputs/aar/dips-release.aar")
                 /*pom.withXml {
