@@ -1,3 +1,12 @@
+buildscript {
+    ext {
+        internalDependencies = [
+                project(':mobilertc'),
+                project(':liveness')
+        ]
+    }
+}
+
 plugins {
     id 'com.android.library'
     id 'maven-publish'
@@ -78,10 +87,6 @@ dependencies {
     implementation project(':liveness')
 }
 
-tasks.withType(GenerateModuleMetadata) {
-    enabled = false
-}
-
 afterEvaluate {
     publishing {
         publications {
@@ -92,8 +97,8 @@ afterEvaluate {
 
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
-                artifactId = 'finalDiPS361'
-                version = 'v.1.0.12'
+                artifactId = 'finaldips361'
+                version = 'v.1.0.13'
             }
             /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
