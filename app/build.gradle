@@ -61,7 +61,7 @@ dependencies {
     implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
     implementation "androidx.work:work-runtime:2.8.0"
-    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     implementation 'ai.advance.mobile-sdk.android:liveness-detection:2.1.1'
     api 'io.jsonwebtoken:jjwt-api:0.11.2'
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
@@ -90,7 +90,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.DiPS361'
                 artifactId = 'finaldips361'
-                version = 'v.1.0.23'
+                version = 'v.1.0.24'
             }
             /*// Creates a Maven publication called “debug”.
             debug(MavenPublication) {
